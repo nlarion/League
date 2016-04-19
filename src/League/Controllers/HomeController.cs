@@ -16,7 +16,24 @@ namespace League.Controllers
         private LeagueContext db = new LeagueContext();
         public IActionResult Index()
         {
-            return View(db.Divisions.ToList());
+            Division myDivision = new Division();
+            ModelView newModelView = new ModelView
+            {
+                divisionList = db.Divisions.ToList(),
+                divisionModel = myDivision
+            };
+
+            return View(newModelView);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Division division)
+        {
+
+            db.Divisions.Add(division);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
+
 }

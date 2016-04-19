@@ -2,12 +2,23 @@
     ViewData["Title"] = "League Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<League.Models.Division>
 
+@model League.Models.ModelView
 
 <h2>Divisions</h2>
-@foreach(var item in Model)
+@foreach(var item in Model.divisionList)
 {
     <li>@item.name</li>
-
 }
+
+@using (Html.BeginForm("Create", "Home"))
+{
+        @Html.LabelFor(model => model.divisionModel.name)
+        @Html.EditorFor(model => model.divisionModel.name)
+        @Html.LabelFor(model => model.divisionModel.skill)
+        @Html.EditorFor(model => model.divisionModel.skill)
+        @Html.LabelFor(model => model.divisionModel.capacity)
+        @Html.EditorFor(model => model.divisionModel.capacity)
+
+        <input type="submit" value="Create" class="btn btn-default" />
+    }
