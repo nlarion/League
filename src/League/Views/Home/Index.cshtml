@@ -1,0 +1,13 @@
+﻿﻿@{
+    ViewData["Title"] = "League Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<League.Models.Division>
+
+
+<h2>Divisions</h2>
+@foreach(var item in Model)
+{
+    <li>@item.name</li>
+
+}
