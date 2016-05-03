@@ -1,5 +1,5 @@
 # League
-
+A site to keep track of Teams in different Leagues
 
 ## Prerequisites
 
